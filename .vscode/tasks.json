@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "windows": {
+        "command": "%MSYS32%/msys2_shell.cmd",
+        "args": ["-here", "-c"]
+    },
+    "linux": {
+        "command": "sh",
+        "args": ["-c"]
+    },
+    "tasks": [
+        {
+            "taskName": "clean",
+            "args": ["make clean && read -n1 -r key"]
+        },
+        {
+            "taskName": "menuconfig",
+            "args": ["make menuconfig && read -n1 -r key"]
+        },
+        {
+            "taskName": "make",
+            "args": ["make && read -n1 -r key"],
+            "isBuildCommand": true
+        },
+        {
+            "taskName": "flash",
+            "args": ["make flash && read -n1 -r key"]
+        }
+    ]
+}

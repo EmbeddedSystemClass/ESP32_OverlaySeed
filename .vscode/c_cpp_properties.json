@@ -1,0 +1,79 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": ["$IDF_PATH/components/esp32/include",
+                            "$IDF_PATH/components/driver/include",
+                            "$IDF_PATH/components/freertos/include",
+                            "$IDF_PATH/components/json/include",
+                            "$IDF_PATH/components/nvs_flash/include",
+                            "$IDF_PATH/components/bt/include",
+                            "$IDF_PATH/components/expat/include",
+                            "$IDF_PATH/components/log/include",
+                            "$IDF_PATH/components/lwip/include",
+                            "$IDF_PATH/components/mbedtls/include",
+                            "$IDF_PATH/components/newlib/include",
+                            "$IDF_PATH/components/nghttp/include",
+                            "$IDF_PATH/components/openssl/include",
+                            "$IDF_PATH/components/spi_flash/include",
+                            "$IDF_PATH/components/tcpip_adapter/include",
+                            "$IDF_PATH/components/vfs/include",
+                            "$IDF_PATH/components/wpa_supplicant/include",
+                            "./components/overlay/include"],
+            "browse" : {
+                "limitSymbolsToIncludedHeaders" : true,
+                "databaseFilename" : ""
+            }
+        },
+        {
+            "name": "Linux",
+            "includePath": ["$IDF_PATH/components/esp32/include",
+                            "$IDF_PATH/components/driver/include",
+                            "$IDF_PATH/components/freertos/include",
+                            "$IDF_PATH/components/json/include",
+                            "$IDF_PATH/components/nvs_flash/include",
+                            "$IDF_PATH/components/bt/include",
+                            "$IDF_PATH/components/expat/include",
+                            "$IDF_PATH/components/log/include",
+                            "$IDF_PATH/components/lwip/include",
+                            "$IDF_PATH/components/mbedtls/include",
+                            "$IDF_PATH/components/newlib/include",
+                            "$IDF_PATH/components/nghttp/include",
+                            "$IDF_PATH/components/openssl/include",
+                            "$IDF_PATH/components/spi_flash/include",
+                            "$IDF_PATH/components/tcpip_adapter/include",
+                            "$IDF_PATH/components/vfs/include",
+                            "$IDF_PATH/components/wpa_supplicant/include",
+                            "./components/overlay/include"],
+            "browse" : {
+                "limitSymbolsToIncludedHeaders" : true,
+                "databaseFilename" : ""
+            }
+        },
+        {
+            "name": "Win32",
+            "includePath": ["%IDF_PATH%/components/esp32/include",
+                            "%IDF_PATH%/components/driver/include",
+                            "%IDF_PATH%/components/freertos/include",
+                            "%IDF_PATH%/components/json/include",
+                            "%IDF_PATH%/components/nvs_flash/include",
+                            "%IDF_PATH%/components/bt/include",
+                            "%IDF_PATH%/components/expat/include",
+                            "%IDF_PATH%/components/log/include",
+                            "%IDF_PATH%/components/lwip/include",
+                            "%IDF_PATH%/components/mbedtls/include",
+                            "%IDF_PATH%/components/newlib/include",
+                            "%IDF_PATH%/components/nghttp/include",
+                            "%IDF_PATH%/components/openssl/include",
+                            "%IDF_PATH%/components/spi_flash/include",
+                            "%IDF_PATH%/components/tcpip_adapter/include",
+                            "%IDF_PATH%/components/vfs/include",
+                            "%IDF_PATH%/components/wpa_supplicant/include",
+                            "./components/overlay/include"],
+            "browse" : {
+                "limitSymbolsToIncludedHeaders" : true,
+                "databaseFilename" : ""
+            }
+        }
+    ]
+}
