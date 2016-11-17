@@ -5,7 +5,9 @@ PROJECT IN ALPHA STAGE!!!!
 
 This is a project template based on ESP IDF and using Visual Studio Code the cross platform IDE. 
 
-THere is a little overlay which will ease your developpment but you can also only use the standard API.
+There is a little overlay which will ease your developpment but you can also only use the standard API (overlay in early alpha stage).
+
+For Windows users, you have to set the MSYS32 variable in .vscode/tasks.json to match with you msys32 installation.
 
 LICENSE
 -------
