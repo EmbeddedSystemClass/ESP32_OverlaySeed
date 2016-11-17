@@ -7,7 +7,12 @@
     "suppressTaskName": true,
     "windows": {
         "command": "%MSYS32%/msys2_shell.cmd",
-        "args": ["-here", "-c"]
+        "args": ["-here", "-c"],
+        "options": {
+            "env": {
+                "MSYS32":"C:\\msys32"
+            }
+        }
     },
     "linux": {
         "command": "sh",
