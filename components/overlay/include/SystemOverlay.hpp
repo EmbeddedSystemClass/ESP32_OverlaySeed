@@ -24,6 +24,7 @@ private:
     SystemOverlay();
 
     static SystemOverlay* _me;
+    static esp_err_t event_handler(void *ctx, system_event_t *event);
 };
 
 #endif
