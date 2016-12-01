@@ -5,7 +5,6 @@
 extern "C"{
 #endif
 
-#include "freertos/FreeRTOS.h"
 #include "esp_system.h"
 #include "esp_event.h"
 #include "esp_event_loop.h"
@@ -15,13 +14,21 @@ extern "C"{
 }
 #endif
 
+#include "SystemListener.hpp"
+
 class SystemOverlay{
 public:
     bool Init();
 
+    bool RegisterListener(SystemListener* listener);
+    bool UnregisterListener(SystemListener* listener);
+
     static SystemOverlay* Instance();
 private:
     SystemOverlay();
+
+    SystemListener* _head;
+    SystemListener* _tail;
 
     static SystemOverlay* _me;
     static esp_err_t event_handler(void *ctx, system_event_t *event);

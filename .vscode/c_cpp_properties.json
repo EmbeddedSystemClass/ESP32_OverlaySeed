@@ -69,7 +69,8 @@
                             "%IDF_PATH%/components/tcpip_adapter/include",
                             "%IDF_PATH%/components/vfs/include",
                             "%IDF_PATH%/components/wpa_supplicant/include",
-                            "./components/overlay/include"],
+                            "./components/overlay/include",
+                            "C:/msys32/opt/xtensa-esp32-elf/xtensa-esp32-elf/include/c++/4.8.5"],
             "browse" : {
                 "limitSymbolsToIncludedHeaders" : true,
                 "databaseFilename" : ""

@@ -5,6 +5,8 @@ extern "C"{
 #include "esp_system.h"
 #include "driver/gpio.h"
 
+#include "esp_log.h"
+
 int app_main(void);
 
 #ifdef __cplusplus
@@ -12,18 +14,30 @@ int app_main(void);
 #endif
 
 #include "SystemOverlay.hpp"
+#include "WIFIOverlay.hpp"
 
 int app_main(void)
 {
+    SystemOverlay::Instance()->Init();
+    WIFIOverlay::Instance()->Init();
 
-    if(!SystemOverlay::Instance()->Init()){
-        printf("Error in Overlay init");
+    WIFIOverlay::Instance()->Start();
+    WIFIOverlay::Instance()->ScanNetworks(true);
+
+    ESP_LOGW("MAIN","WiFiOverlay scan done");
+
+    while(!WIFIOverlay::Instance()->ScanDone()){
+        vTaskDelay(300 / portTICK_PERIOD_MS);
     }
-    
-    gpio_set_direction(GPIO_NUM_4, GPIO_MODE_OUTPUT);
+
+    if(WIFIOverlay::Instance()->NearbyAP() != NULL){
+        ESP_LOGW("MAIN","Detected wireless network : %d", WIFIOverlay::Instance()->NearbyAP()->APCount);
+    }
+
+    gpio_set_direction(GPIO_NUM_5, GPIO_MODE_OUTPUT);
     int level = 0;
     while (true) {
-        gpio_set_level(GPIO_NUM_4, level);
+        gpio_set_level(GPIO_NUM_5, level);
         level = !level;
         vTaskDelay(300 / portTICK_PERIOD_MS);
     }
