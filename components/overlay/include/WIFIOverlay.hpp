@@ -26,7 +26,7 @@ public:
 
 class WIFIOverlay : public SystemListener{
 public:
-    bool Init(wifi_mode_t mode = WIFI_MODE_STA);
+    bool Init(wifi_mode_t mode = WIFI_MODE_APSTA);
 
     bool ConfigureSTA(const char* ssid, 
                         const char* password = NULL, 

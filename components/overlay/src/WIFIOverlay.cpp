@@ -7,6 +7,7 @@ bool WIFIOverlay::Init(wifi_mode_t mode){
     _started = false;
     esp_err_t err = ESP_OK;
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+
     err = esp_wifi_init(&cfg);
     err = esp_wifi_set_storage(WIFI_STORAGE_RAM);
     err = esp_wifi_set_mode(mode);
