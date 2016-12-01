@@ -26,13 +26,13 @@ public:
 
 class WIFIOverlay : public SystemListener{
 public:
-    esp_err_t Init(wifi_mode_t mode = WIFI_MODE_STA);
+    bool Init(wifi_mode_t mode = WIFI_MODE_STA);
 
-    esp_err_t ConfigureSTA(const char* ssid, 
+    bool ConfigureSTA(const char* ssid, 
                         const char* password = NULL, 
                         bool hidden = false);
 
-    esp_err_t ConfigureAP(const char* ssid, 
+    bool ConfigureAP(const char* ssid, 
                         const char* password = NULL, 
                         wifi_auth_mode_t auth = WIFI_AUTH_OPEN,
                         bool hidden = false, 
@@ -41,10 +41,10 @@ public:
     virtual void DataHandler(system_event_t *event);
     virtual bool ApplyFilter(system_event_id_t event_id);
 
-    esp_err_t Start();
-    esp_err_t Connect();
+    bool Start();
+    bool Connect();
     
-    esp_err_t ScanNetworks(bool block = false);
+    bool ScanNetworks(bool block = false);
     APList* NearbyAP();
     bool ScanDone();
 

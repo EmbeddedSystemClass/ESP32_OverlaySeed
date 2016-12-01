@@ -3,7 +3,7 @@
 
 WIFIOverlay* WIFIOverlay::_me;
 
-esp_err_t WIFIOverlay::Init(wifi_mode_t mode){
+bool WIFIOverlay::Init(wifi_mode_t mode){
     _started = false;
     esp_err_t err = ESP_OK;
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
@@ -13,10 +13,10 @@ esp_err_t WIFIOverlay::Init(wifi_mode_t mode){
     
     SystemOverlay::Instance()->RegisterListener(this);
 
-    return err;
+    return err == ESP_OK;
 }
 
-esp_err_t WIFIOverlay::ConfigureSTA(const char* ssid, const char* password, bool hidden){
+bool WIFIOverlay::ConfigureSTA(const char* ssid, const char* password, bool hidden){
     esp_err_t err = ESP_OK;
 
     wifi_config_t* wifi_config = (wifi_config_t*)malloc(sizeof(wifi_config_t));
@@ -31,10 +31,10 @@ esp_err_t WIFIOverlay::ConfigureSTA(const char* ssid, const char* password, bool
     err = esp_wifi_set_config(WIFI_IF_STA, wifi_config);
     free(wifi_config);
 
-    return err;
+    return err == ESP_OK;
 }
 
-esp_err_t WIFIOverlay::ConfigureAP(const char* ssid, 
+bool WIFIOverlay::ConfigureAP(const char* ssid, 
                                             const char* password, 
                                             wifi_auth_mode_t auth,
                                             bool hidden, 
@@ -57,10 +57,10 @@ esp_err_t WIFIOverlay::ConfigureAP(const char* ssid,
     
     err = esp_wifi_set_config(WIFI_IF_AP,wifi_config);
     free(wifi_config);
-    return err;
+    return err == ESP_OK;
 }
 
-esp_err_t WIFIOverlay::Start(){
+bool WIFIOverlay::Start(){
     esp_err_t err = ESP_OK;
     if(!_started){
         err = esp_wifi_start();
@@ -68,14 +68,14 @@ esp_err_t WIFIOverlay::Start(){
     if(err == ESP_OK){
         _started = true;
     }
-    return err;
+    return err == ESP_OK;
 }
 
-esp_err_t WIFIOverlay::Connect(){
-    return esp_wifi_connect();
+bool WIFIOverlay::Connect(){
+    return esp_wifi_connect() == ESP_OK;
 }
 
-esp_err_t WIFIOverlay::ScanNetworks(bool block){
+bool WIFIOverlay::ScanNetworks(bool block){
     esp_err_t err = ESP_OK;
 
     wifi_scan_config_t scanConf = {
@@ -92,7 +92,7 @@ esp_err_t WIFIOverlay::ScanNetworks(bool block){
 
     err = esp_wifi_scan_start(&scanConf, block);
 
-    return err;
+    return err == ESP_OK;
 }
 
 void WIFIOverlay::DataHandler(system_event_t *event){
