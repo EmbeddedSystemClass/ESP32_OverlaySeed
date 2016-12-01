@@ -23,6 +23,11 @@ public:
     bool RegisterListener(SystemListener* listener);
     bool UnregisterListener(SystemListener* listener);
 
+    void DelayMillis(int millis);
+    void DelayMicros(int micros);
+    uint32_t Micros();
+    uint32_t Millis();
+
     static SystemOverlay* Instance();
 private:
     SystemOverlay();

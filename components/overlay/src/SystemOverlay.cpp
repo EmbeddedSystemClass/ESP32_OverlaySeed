@@ -80,3 +80,29 @@ bool SystemOverlay::UnregisterListener(SystemListener* listener){
 
     return false;
 }
+
+void SystemOverlay::DelayMillis(int millis){
+    vTaskDelay(millis / portTICK_PERIOD_MS);
+}
+
+void SystemOverlay::DelayMicros(int micros){
+    if(micros) {
+        unsigned long endat = Micros();
+        endat += micros;
+        while(Micros() < endat) {
+            asm volatile ("nop");
+        }
+    }
+}
+
+uint32_t SystemOverlay::Micros()
+{
+    uint32_t ccount;
+    __asm__ __volatile__ ( "rsr     %0, ccount" : "=a" (ccount) );
+    return ccount / CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ;
+}
+
+uint32_t SystemOverlay::Millis()
+{
+    return Micros()/1000;
+}

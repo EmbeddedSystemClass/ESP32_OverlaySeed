@@ -15,6 +15,7 @@ int app_main(void);
 
 #include "SystemOverlay.hpp"
 #include "WIFIOverlay.hpp"
+#include "GPIOOverlay.hpp"
 
 int app_main(void)
 {
@@ -24,22 +25,16 @@ int app_main(void)
     WIFIOverlay::Instance()->Start();
     WIFIOverlay::Instance()->ScanNetworks(true);
 
-    ESP_LOGW("MAIN","WiFiOverlay scan done");
-
     while(!WIFIOverlay::Instance()->ScanDone()){
-        vTaskDelay(300 / portTICK_PERIOD_MS);
+        SystemOverlay::Instance()->DelayMillis(300);
     }
 
-    if(WIFIOverlay::Instance()->NearbyAP() != NULL){
-        ESP_LOGW("MAIN","Detected wireless network : %d", WIFIOverlay::Instance()->NearbyAP()->APCount);
-    }
-
-    gpio_set_direction(GPIO_NUM_5, GPIO_MODE_OUTPUT);
-    int level = 0;
+    GPIOOverlay::Instance()->SetDirection(GPIO_NUM_5, GPIO_MODE_OUTPUT);
+    bool level = true;
     while (true) {
-        gpio_set_level(GPIO_NUM_5, level);
+        GPIOOverlay::Instance()->DigitalWrite(GPIO_NUM_5, level);
         level = !level;
-        vTaskDelay(300 / portTICK_PERIOD_MS);
+        SystemOverlay::Instance()->DelayMillis(500);
     }
 
     return 0;
