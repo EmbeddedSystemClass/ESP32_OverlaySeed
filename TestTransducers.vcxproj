@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{375FE110-1C18-469E-AFF5-F96A112DEE26}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make ; read -n1 -r key</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make clean; read -n1 -r key</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make clean; read -n1 -r key &amp;&amp; $(MSYS32)\msys2_shell.cmd -here -c make %3b read -n1 -r key</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(IDF_PATH)\components\xtensa-debug-module\include;$(IDF_PATH)\components\wpa_supplicant\include;$(IDF_PATH)\components\vfs\include;$(IDF_PATH)\components\ulp\include;$(IDF_PATH)\components\tcpip_adapter\include;$(IDF_PATH)\components\spi_flash\include;$(IDF_PATH)\components\openssl\include;$(IDF_PATH)\components\nvs_flash\include;$(IDF_PATH)\components\nghttp\include;$(IDF_PATH)\components\newlib\include;$(IDF_PATH)\components\mbedtls\include;$(IDF_PATH)\components\lwip\include\lwip;$(IDF_PATH)\components\log\include;$(IDF_PATH)\components\json\include;$(IDF_PATH)\components\freertos\include;$(IDF_PATH)\components\expat\include;$(IDF_PATH)\components\ethernet\include;$(IDF_PATH)\components\esp32\include;$(IDF_PATH)\components\driver\include;$(IDF_PATH)\components\bt\bluedroid\osi\include;$(IDF_PATH)\components\bt\bluedroid\include;$(IDF_PATH)\components\bt\bluedroid\hci\include;$(IDF_PATH)\components\bt\bluedroid\gki\include;$(IDF_PATH)\components\bt\bluedroid\device\include;$(IDF_PATH)\components\bt\bluedroid\btcore\include;$(IDF_PATH)\components\bt\bluedroid\btc\include;$(IDF_PATH)\components\bt\bluedroid\bta\include;$(IDF_PATH)\components\bt\bluedroid\api\include;$(IDF_PATH)\components\bt\include;$(IDF_PATH)\components\bootloader_support\include;$(IDF_PATH)\components\app_update\include;.\components\overlay\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make ; read -n1 -r key</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make clean; read -n1 -r key</NMakeCleanCommandLine>
+    <NMakeReBuildCommandLine>$(MSYS32)\msys2_shell.cmd -here -c make clean; read -n1 -r key &amp;&amp; $(MSYS32)\msys2_shell.cmd -here -c make %3b read -n1 -r key</NMakeReBuildCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(IDF_PATH)\components\xtensa-debug-module\include;$(IDF_PATH)\components\wpa_supplicant\include;$(IDF_PATH)\components\vfs\include;$(IDF_PATH)\components\ulp\include;$(IDF_PATH)\components\tcpip_adapter\include;$(IDF_PATH)\components\spi_flash\include;$(IDF_PATH)\components\openssl\include;$(IDF_PATH)\components\nvs_flash\include;$(IDF_PATH)\components\nghttp\include;$(IDF_PATH)\components\newlib\include;$(IDF_PATH)\components\mbedtls\include;$(IDF_PATH)\components\lwip\include\lwip;$(IDF_PATH)\components\log\include;$(IDF_PATH)\components\json\include;$(IDF_PATH)\components\freertos\include;$(IDF_PATH)\components\expat\include;$(IDF_PATH)\components\ethernet\include;$(IDF_PATH)\components\esp32\include;$(IDF_PATH)\components\driver\include;$(IDF_PATH)\components\bt\bluedroid\osi\include;$(IDF_PATH)\components\bt\bluedroid\include;$(IDF_PATH)\components\bt\bluedroid\hci\include;$(IDF_PATH)\components\bt\bluedroid\gki\include;$(IDF_PATH)\components\bt\bluedroid\device\include;$(IDF_PATH)\components\bt\bluedroid\btcore\include;$(IDF_PATH)\components\bt\bluedroid\btc\include;$(IDF_PATH)\components\bt\bluedroid\bta\include;$(IDF_PATH)\components\bt\bluedroid\api\include;$(IDF_PATH)\components\bt\include;$(IDF_PATH)\components\bootloader_support\include;$(IDF_PATH)\components\app_update\include;.\components\overlay\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="components\overlay\src\GPIOOverlay.cpp" />
+    <ClCompile Include="components\overlay\src\SystemListener.cpp" />
+    <ClCompile Include="components\overlay\src\SystemOverlay.cpp" />
+    <ClCompile Include="components\overlay\src\WIFIOverlay.cpp" />
+    <ClCompile Include="main\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="components\overlay\include\Application.hpp" />
+    <ClInclude Include="components\overlay\include\GPIOOverlay.hpp" />
+    <ClInclude Include="components\overlay\include\SystemListener.hpp" />
+    <ClInclude Include="components\overlay\include\SystemOverlay.hpp" />
+    <ClInclude Include="components\overlay\include\WIFIOverlay.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

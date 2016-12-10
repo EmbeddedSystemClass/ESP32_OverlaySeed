@@ -3,7 +3,6 @@
 
 #include "Application.hpp"
 
-
 int app_main(void)
 {
     SystemOverlay::Instance()->Init();
