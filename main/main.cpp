@@ -1,22 +1,30 @@
 #define WIFI_OVERLAY
 #define GPIO_OVERLAY
 
+#include "esp_log.h"
+
 #include "Application.hpp"
+
+#define TAG "APP_MAIN"
 
 int app_main(void)
 {
     SystemOverlay::Instance()->Init();
-
+	/*
     WIFIOverlay::Instance()->Init();
     WIFIOverlay::Instance()->ConfigureAP("TEST_ESP");
     WIFIOverlay::Instance()->Start();
+	*/
 
-    GPIOOverlay::Instance()->SetDirection(GPIO_NUM_5, GPIO_MODE_OUTPUT);
-    bool level = true;
+	GPIOOverlay::Instance()->InitTouchPad();
+    GPIOOverlay::Instance()->SetMode(GPIO_NUM_5, GPIO_MODE_OUTPUT);
     while (true) {
-        GPIOOverlay::Instance()->DigitalWrite(GPIO_NUM_5, level);
-        level = !level;
-        SystemOverlay::Instance()->DelayMillis(1000);
+		if (GPIOOverlay::Instance()->ReadTouchPad(TOUCH_PAD_NUM0) < 300) {
+			GPIOOverlay::Instance()->DigitalWrite(GPIO_NUM_5, HIGH);
+		}
+		else {
+			GPIOOverlay::Instance()->DigitalWrite(GPIO_NUM_5, LOW);
+		}
     }
     return 0;
 }

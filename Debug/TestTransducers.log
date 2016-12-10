@@ -1,2 +1,1 @@
-﻿  The system cannot find the path specified.
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.MakeFile.Targets(41,5): error MSB3073: The command "C:\\msys32\msys2_shell.cmd -here -c make ; read -n1 -r key" exited with code 3.
+﻿

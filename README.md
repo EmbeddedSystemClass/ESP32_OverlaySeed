@@ -9,6 +9,8 @@ There is a little overlay which will ease your developpment but you can also onl
 
 For Windows users, you have to set the MSYS32 variable in .vscode/tasks.json to match with you msys32 installation.
 
+THe GPIOOverlay was largely taken from arduino-esp32 from espressif 
+
 LICENSE
 -------
 
