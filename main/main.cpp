@@ -1,7 +1,4 @@
-#define WIFI_OVERLAY
 #define GPIO_OVERLAY
-
-#include "esp_log.h"
 
 #include "Application.hpp"
 
@@ -10,11 +7,6 @@
 int app_main(void)
 {
     SystemOverlay::Instance()->Init();
-	/*
-    WIFIOverlay::Instance()->Init();
-    WIFIOverlay::Instance()->ConfigureAP("TEST_ESP");
-    WIFIOverlay::Instance()->Start();
-	*/
 
 	GPIOOverlay::Instance()->InitTouchPad();
     GPIOOverlay::Instance()->SetMode(GPIO_NUM_5, GPIO_MODE_OUTPUT);

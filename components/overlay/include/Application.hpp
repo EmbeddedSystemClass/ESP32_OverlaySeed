@@ -4,6 +4,7 @@ extern "C"{
 
 #include "esp_system.h"
 #include "driver/gpio.h"
+#include "esp_log.h"
 
 int app_main(void);
 
