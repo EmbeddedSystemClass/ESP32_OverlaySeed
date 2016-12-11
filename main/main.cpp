@@ -7,8 +7,7 @@
 int app_main(void)
 {
     SystemOverlay::Instance()->Init();
-
-	GPIOOverlay::Instance()->InitTouchPad();
+    GPIOOverlay::Instance()->InitTouchPad();
     GPIOOverlay::Instance()->SetMode(GPIO_NUM_5, GPIO_MODE_OUTPUT);
     while (true) {
 		if (GPIOOverlay::Instance()->ReadTouchPad(TOUCH_PAD_NUM0) < 300) {
