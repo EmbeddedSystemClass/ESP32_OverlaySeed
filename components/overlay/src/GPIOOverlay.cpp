@@ -72,7 +72,7 @@ uint16_t GPIOOverlay::ReadTouchPad(touch_pad_t touch_num)
 
 bool GPIOOverlay::RegisterTouchPadInterrupt(uint32_t touch_intr_num, isr_handler handler, void * arg)
 {
-	return touch_pad_isr_handler_register(touch_intr_num,handler,arg) == ESP_OK;
+	return touch_pad_isr_handler_register(handler,arg,0,NULL) == ESP_OK;
 }
 
 GPIOOverlay* GPIOOverlay::Instance(){

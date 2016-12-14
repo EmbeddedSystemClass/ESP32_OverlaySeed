@@ -12,7 +12,7 @@ bool WIFIOverlay::Init(wifi_mode_t mode){
     err = esp_wifi_set_storage(WIFI_STORAGE_RAM);
     err = esp_wifi_set_mode(mode);
     
-    SystemOverlay::Instance()->RegisterListener(this);
+    //SystemOverlay::Instance()->RegisterListener(this);
 
     return err == ESP_OK;
 }
@@ -21,7 +21,7 @@ bool WIFIOverlay::ConfigureSTA(const char* ssid, const char* password, bool hidd
     esp_err_t err = ESP_OK;
 
     wifi_config_t* wifi_config = (wifi_config_t*)malloc(sizeof(wifi_config_t));
-    err = esp_wifi_get_config(WIFI_IF_AP,wifi_config);
+    err = esp_wifi_get_config(WIFI_IF_STA,wifi_config);
     strcpy(wifi_config->sta.ssid,ssid);
     if(password != NULL){
         strcpy(wifi_config->sta.password,password);
@@ -30,7 +30,7 @@ bool WIFIOverlay::ConfigureSTA(const char* ssid, const char* password, bool hidd
     wifi_config->sta.bssid_set = !hidden;
 
     err = esp_wifi_set_config(WIFI_IF_STA, wifi_config);
-    free(wifi_config);
+    //free(wifi_config);
 
     return err == ESP_OK;
 }
@@ -57,7 +57,7 @@ bool WIFIOverlay::ConfigureAP(const char* ssid,
     wifi_config->ap.beacon_interval = 100;
     
     err = esp_wifi_set_config(WIFI_IF_AP,wifi_config);
-    free(wifi_config);
+    //free(wifi_config);
     return err == ESP_OK;
 }
 
